@@ -1,0 +1,218 @@
+#!/usr/bin/env nextflow
+
+Channel.fromFilePairs(params.indir + params.readpat).ifEmpty("No files found").set{ channel_fastqs }
+
+process qaat_test {
+
+    errorStrategy 'retry'
+    maxRetries 1
+    memory '10 GB'
+    scratch true
+    stageInMode 'copy'
+    stageOutMode 'rsync'
+
+    input:
+    tuple dataset_id, reads from channel_fastqs
+
+    output:
+    tuple dataset_id, path("${dataset_id}") into qaat_done_ch
+
+    containerOptions '--bind /hpscol02'
+    clusterOptions = '-m cyclic --cpus-per-task=6'
+
+    tag { dataset_id }
+
+    script:
+    """
+    mkdir -p ${dataset_id}
+
+    cp -rL ${reads[0]} ${dataset_id}
+    cp -rL ${reads[1]} ${dataset_id}
+
+    qa_and_trim.py workflow ${params.workflow} \$(pwd)/${dataset_id} || true
+
+    test -d \$(pwd)/${dataset_id}/qa_and_trim/fastqc/processed/ && find \$(pwd)/${dataset_id}/qa_and_trim/fastqc/processed/ -type f -not \\( -name 'summary.txt' -o -name '*.png' \\) -delete
+    test -d \$(pwd)/${dataset_id}/qa_and_trim/fastqc/processed/ && find \$(pwd)/${dataset_id}/qa_and_trim/fastqc/processed/ -type d -empty -delete
+    rm -rf \$(pwd)/${dataset_id}/qa_and_trim/fastqc/raw_data/
+    rm -rf \$(pwd)/${dataset_id}/qa_and_trim/tmp/
+    rm \$(pwd)/${dataset_id}/*.ngsservice.R[12].fastq.gz
+    """
+}
+
+// -------------------------------------------------------------------------------------------------
+
+process viral_contamination_check {
+
+    errorStrategy 'retry'
+    maxRetries 1
+    memory '15 GB'
+    scratch true
+    stageInMode 'copy'
+    stageOutMode 'rsync'
+
+    input:
+    tuple dataset_id, path("${dataset_id}") from qaat_done_ch
+
+    output:
+    tuple dataset_id, path("${dataset_id}") into vcc_done_ch
+
+    tag { dataset_id }
+
+    containerOptions '--bind /hpscol02,/hpscol02/tenant1/ngsservice/pherefs:/mnt'
+    clusterOptions = '-m cyclic --cpus-per-task=6'
+
+    script:
+    """
+    cd ${dataset_id}
+    contamination_check_viral.sh -w ${params.workflow} -i \$(pwd)
+    """
+
+}
+
+// -------------------------------------------------------------------------------------------------
+
+//process iVar_trim {
+  //  // iVar trim of amplification primers
+    
+  //  errorStrategy 'retry'
+  //  maxRetries 1
+  //  memory '2 GB'
+
+  //  input:
+  //  tuple dataset_id, path("${dataset_id}") from vcc_done_ch
+
+  //  output:
+  //  tuple dataset_id, path("${dataset_id}") into it_done_ch
+
+  //  containerOptions '--bind /hpscol02'
+  //  clusterOptions = '-m cyclic --cpus-per-task=2'
+
+  //  tag { dataset_id }
+
+  //  script:
+  //  """
+  //  cd ${dataset_id}
+  //  rsv_pipeline_ivar.py -w ${params.workflow} -i \$(pwd)
+  //  """
+
+
+//}
+
+
+// -------------------------------------------------------------------------------------------------
+
+process viral_quasi_species {
+    // quasibam process
+
+    errorStrategy 'retry'
+    maxRetries 1
+    memory '2 GB'
+
+    input:
+    tuple dataset_id, path("${dataset_id}") from it_done_ch
+
+    output:
+    tuple dataset_id, path("${dataset_id}") into vqs_done_ch
+
+    containerOptions '--bind /hpscol02'
+    clusterOptions = '-m cyclic --cpus-per-task=2'
+
+    tag { dataset_id }
+
+    script:
+    """
+    cd ${dataset_id}
+    viral_quasi_species.py -w ${params.workflow} -i \$(pwd)
+    """
+}
+
+// -------------------------------------------------------------------------------------------------
+
+process generate_bamstats {
+    // generate bamstats process
+
+    errorStrategy 'retry'
+    maxRetries 1
+    memory '2 GB'
+    scratch true
+    stageInMode 'copy'
+    stageOutMode 'rsync'
+
+    input:
+    tuple dataset_id, path("${dataset_id}") from vqs_done_ch
+
+    output:
+    tuple dataset_id, path("${dataset_id}") into genbs_done_ch
+
+    containerOptions '--bind /hpscol02'
+    clusterOptions = '-m cyclic --cpus-per-task=2'
+
+    tag { dataset_id }
+
+    script:
+    """
+    cd ${dataset_id}
+    generate_bamstats.py -w ${params.workflow} -i \$(pwd)
+    """
+}
+
+// -------------------------------------------------------------------------------------------------
+
+process combine_xml {
+
+    errorStrategy 'retry'
+    maxRetries 1
+    memory '1 GB'
+    scratch true
+    stageInMode 'copy'
+    stageOutMode 'rsync'
+
+    input:
+    tuple dataset_id, path("${dataset_id}") from genbs_done_ch
+
+    output:
+    tuple dataset_id, path("${dataset_id}") into comx_done_ch
+
+    containerOptions '--bind /hpscol02'
+
+    tag { dataset_id }
+
+    script:
+    """
+    cd ${dataset_id}
+    combine_xml.py -w ${params.workflow} -i \$(pwd) -s ${dataset_id}
+    """
+}
+
+// -------------------------------------------------------------------------------------------------
+
+process wf_complete {
+
+    errorStrategy 'ignore'
+    maxRetries 1
+    memory '1 GB'
+
+    input:
+    tuple dataset_id, path("${dataset_id}") from comx_done_ch
+
+    output:
+    path("${dataset_id}")
+
+    tag { dataset_id }
+
+    script:
+    """
+    if [[ -f "${dataset_id}/combine_xml/ComponentComplete.txt" &&
+          -f "${dataset_id}/generate_bamstats/ComponentComplete.txt" &&
+          -f "${dataset_id}/viral_quasi_species/ComponentComplete.txt" &&
+          -f "${dataset_id}/contamination_check_viral/ComponentComplete.txt" &&
+          -f "${dataset_id}/qa_and_trim/ComponentComplete.txt" ]]; then
+        touch ${dataset_id}/WorkflowComplete.txt
+        rsync -vv -r -L -p -t -g -o -D --update ${dataset_id} ${params.output_dir}
+        exit 0
+    else
+        rsync -vv -r -L -p -t -g -o -D --update ${dataset_id} ${params.output_dir}
+        exit 1
+    fi
+    """
+}

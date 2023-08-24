@@ -1,0 +1,1287 @@
+# This file contains the details for one or more PCR assays that target
+# members within a specific taxonomic group.
+
+# These names refer to this group of PCR Assays. The short
+# name should be recognisable and in common usage e.g., HIV for Human
+# Immunodeficieny Virus or B19 for Parvovirus B19. If this file describes
+# PCR assays spanning numerous named viruses, a local, non-standard
+# abbreviation can be used e.g., EVG for Enterovirus Group
+short_name = 'RSV'
+# The value for taxonomic name must match an entry in the NCBI Taxonomy
+# database. To check the taxonomic name, you can search using a common
+# or medical virus name here: https://www.ncbi.nlm.nih.gov/taxonomy
+
+# VRD assays included an assay targeting AF534906.1, Human adenovirus type 1
+# subgroup C, while subgroup F is also of interest. The rank above "Human
+# mastadenovirus F" and "Human mastadenovirus C" species is the genus
+# Mastadenovirus - very broad.
+taxonomy_name = "Orthopneumovirus"
+
+# "Segmented virus genomes are those that are divided into two or more
+# physically separate molecules of nucleic acid, all of which are then
+# packaged into a single virus particle. In contrast, although multipartite
+# genomes are also segmented, each genome segment is packaged into a separate
+# virus particle."
+# Alan J. Cann, in Principles of Molecular Virology (Sixth Edition), 2016
+segmented = false
+circular = false
+
+# The name of this file should contain the short and taxonomic name:
+# 'AAA Template virus name.toml'
+
+# Each of the following sections corresponds to a PCR assay and starts with
+# the name of the assay in square brackets. Spaces are not allowed so use
+# underscore (_) instead e.g., [assay_outer] not [assay outer].
+
+# `description`
+# a sentence summarising the purpose of the assay
+
+# `sop_id`
+# the version controlled Standard Operating Procedure (SOP) number as stored
+# in e.g., Q-Pulse
+
+# `forward`
+# the nucleotide sequence of the forward PCR primer in the 5' to 3' direction
+
+# `reverse`
+# the nucleotide sequence of the reverse PCR primer in the 5' to 3' direction
+
+# `probe`
+# (optional) is the nucleotide sequence of the PCR probe in the 5' to 3'
+# direction on the forward strand
+
+# `target_id`
+# (optional) is the accession number (GenBank/INSDC) of a genome known to work
+# with these oligonucleotides e.g., "AF082843.1" would refer to this record:
+# https://www.ncbi.nlm.nih.gov/nuccore/AF082843.1
+
+[Assays]
+
+# reverse_strand_same_as_forward = false gives:
+# MappedOrientationError: Probe 'Adeno-Probe' at 25740 to 25769 mapping ends after reverse primer starts (25740 <= 17794)
+# reverse_strand_same_as_forward = true gives: probably insertion in mapping revealed
+# by check_slices = True
+
+
+## Primal Scheme based multiplex reactions from Josh Quick, University of Birmingham
+## TODO update with multiplex = true etc - autogenerate
+
+[Assays."HRSVA1_pool1".multiplex."region1"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_1_LEFT", "ATGGGCAGCAACTCATTGAGT"]
+reverse = ["RSVA1_1_RIGHT", "GTGCTTCCCACTTTGTGCAATAG"]
+
+[Assays."HRSVA1_pool2".multiplex."region2"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_2_LEFT", "ACCACAAAGACTGATGATCACAGA"]
+reverse = ["RSVA1_2_RIGHT", "CAGTTGTTAAGCTTGCTAATGTTAACAC"]
+
+[Assays."HRSVA1_pool1".multiplex."region3"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_3_LEFT", "TGTCTAGATTAGGAAGAGAAGACACCA"]
+reverse = ["RSVA1_3_RIGHT", "CTTGATTCCTTGGTGTACCTCTGT"]
+
+[Assays."HRSVA1_pool2".multiplex."region4"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_4_LEFT", "TGGGTGGAGAAGCAGGATTCTA"]
+reverse = ["RSVA1_4_RIGHT", "TGGCATCTCTTATACCATCCCGA"]
+
+[Assays."HRSVA1_pool1".multiplex."region5"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_5_LEFT", "CCTACGCCAAGTGATAATCCTTTTTC"]
+reverse = ["RSVA1_5_RIGHT", "ACATTGGCTAGTTCTTTTATGAGTAGATCT"]
+
+[Assays."HRSVA1_pool2".multiplex."region6"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_6_LEFT", "TCTCTCAATCCAACATCAGAGAAACT"]
+reverse = ["RSVA1_6_RIGHT", "TGCATTTGTAATGGCATTTTTGAATTCA"]
+
+[Assays."HRSVA1_pool1".multiplex."region7"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_7_LEFT", "ACACATGACATCATTGCTTTATGTGAA"]
+reverse = ["RSVA1_7_RIGHT", "ATTGACTCGAGCTCTTGGTAGC"]
+
+[Assays."HRSVA1_pool2".multiplex."region8"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_8_LEFT", "GAGTTCCAGATCATCCCAAGTCA"]
+reverse = ["RSVA1_8_RIGHT", "GGGGTTGTGTTCTTGATCTGGT"]
+
+[Assays."HRSVA1_pool1".multiplex."region9"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_9_LEFT", "ATTCATAGCCTCGGCAAACCAC"]
+reverse = ["RSVA1_9_RIGHT", "TGGTCATGGCTTTTTGCAACAA"]
+
+[Assays."HRSVA1_pool2".multiplex."region10"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_10_LEFT", "AACAATCCAACCTGCTGGGC"]
+reverse = ["RSVA1_10_RIGHT", "AGTTCTCTTCTGGCTCGACTGT"]
+
+[Assays."HRSVA1_pool1".multiplex."region11"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_11_LEFT", "GTGCTCTAAGAACTGGTTGGTATAC"]
+reverse = ["RSVA1_11_RIGHT", "GGGGATGTGTGTAGTTTCCAACA"]
+
+[Assays."HRSVA1_pool2".multiplex."region12"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_12_LEFT", "CCAGAGAATTTAGTGTTAATGCAGGTG"]
+reverse = ["RSVA1_12_RIGHT", "TGCATCAAATTCATCAGAGGGGA"]
+
+[Assays."HRSVA1_pool1".multiplex."region13"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_13_LEFT", "AGGAGCCATTGTGTCATGCTATG"]
+reverse = ["RSVA1_13_RIGHT", "TTTTACCATTCAAGCAATGACCTCG"]
+
+[Assays."HRSVA1_pool2".multiplex."region14"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_14_LEFT", "CAGAAGCACACCAGTCACATTAAG"]
+reverse = ["RSVA1_14_RIGHT", "GGGTTATTGATGGTTATGCTCTTGTG"]
+
+[Assays."HRSVA1_pool1".multiplex."region15"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_15_LEFT", "CACCCAAAGTAAGAGTGTACAATACTG"]
+reverse = ["RSVA1_15_RIGHT", "CTGTTCTGACGAGGTCATACTCTTG"]
+
+[Assays."HRSVA1_pool2".multiplex."region16"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_16_LEFT", "GGAAGTTACATATTCAATGGTCCTTATCTC"]
+reverse = ["RSVA1_16_RIGHT", "TTGAATCCACATCTTAAGCCTAAGC"]
+
+[Assays."HRSVA1_pool1".multiplex."region17"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_17_LEFT", "TCATAAGGAACTCAAAAGAATTACTGTGAC"]
+reverse = ["RSVA1_17_RIGHT", "CCTGATAGAACAATCAAATCTCTTTCTGT"]
+
+[Assays."HRSVA1_pool2".multiplex."region18"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_18_LEFT", "TGGCAGATGGATAATTCTATTGAGTAAGT"]
+reverse = ["RSVA1_18_RIGHT", "TGTTTTCTGCTATCATTTTCTCTGCT"]
+
+[Assays."HRSVA1_pool1".multiplex."region19"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_19_LEFT", "AGTTTCCCTAGAAATTATATGCCGTCA"]
+reverse = ["RSVA1_19_RIGHT", "AAAGCAGTAATTGAGAATTTCCCTTTGA"]
+
+[Assays."HRSVA1_pool2".multiplex."region20"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_20_LEFT", "TGCACATATAGGCATGCACCC"]
+reverse = ["RSVA1_20_RIGHT", "AATCAGGAGTTCTTCTATAGAAACTTCGA"]
+
+[Assays."HRSVA1_pool1".multiplex."region21"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_21_LEFT", "GTCTAGAATCTATAGGTAGTTTGACACAAGA"]
+reverse = ["RSVA1_21_RIGHT", "GTTTTTCCTCATCATCTCAGTGGC"]
+
+[Assays."HRSVA1_pool2".multiplex."region22"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_22_LEFT", "CCTCACGGGCTAAGAGTTGTTT"]
+reverse = ["RSVA1_22_RIGHT", "CAGACATTAAGCTAAGGCCAAAGC"]
+
+[Assays."HRSVA1_pool1".multiplex."region23"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_23_LEFT", "GTAGACCATGTGAATTCCCTGCA"]
+reverse = ["RSVA1_23_RIGHT", "AAACCATAGTTTGAAGCTATGACATCC"]
+
+[Assays."HRSVA1_pool2".multiplex."region24"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_24_LEFT", "GAGCAAAGCTGGAGTGTGATATGA"]
+reverse = ["RSVA1_24_RIGHT", "TGCCAAGGAAGCATGCAATAAA"]
+
+[Assays."HRSVA1_pool1".multiplex."region25"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_25_LEFT", "AGAACCAATTACAGCAGACAAGATTTG"]
+reverse = ["RSVA1_25_RIGHT", "ACTACATTAAATACTGGGAACACATTTGC"]
+
+[Assays."HRSVA1_pool2".multiplex."region26"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA1_26_LEFT", "GGAGCAGGGAATTTATTATTGCGTAC"]
+reverse = ["RSVA1_26_RIGHT", "CACTTAGATGAGGATAAGTAGATTCTACCA"]
+
+
+
+
+
+[Assays."HRSVA2_pool1".multiplex."region1"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_1_LEFT", "TTGGTTAGAGATGGGCAGCAAC"]
+reverse = ["RSVA2_1_RIGHT", "GGTGTGTGCTTGGTAGGCTTAA"]
+
+[Assays."HRSVA2_pool2".multiplex."region2"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_2_LEFT", "AACTTGATGAAAGACAGGCCACA"]
+reverse = ["RSVA2_2_RIGHT", "TCATCCCACAATCAGGAGAGTCA"]
+
+[Assays."HRSVA2_pool1".multiplex."region3"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_3_LEFT", "GGCAAATGGAGTGGATGTAACAAC"]
+reverse = ["RSVA2_3_RIGHT", "AGCCTCTAGTTCTTCTGCTGTCA"]
+
+[Assays."HRSVA2_pool2".multiplex."region4"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_4_LEFT", "TGGGTGGAGAAGCAGGATTCTA"]
+reverse = ["RSVA2_4_RIGHT", "GCATCTCTTATACCATCCCGAGC"]
+
+[Assays."HRSVA2_pool1".multiplex."region5"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_5_LEFT", "ACAAGCCCAATTATCAAAGAAAGCC"]
+reverse = ["RSVA2_5_RIGHT", "GCTAGCACTGCACTTCTTGAGT"]
+
+[Assays."HRSVA2_pool2".multiplex."region6"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_6_LEFT", "TCCACATACACAGCTGCTGTTC"]
+reverse = ["RSVA2_6_RIGHT", "TGGGATGATCTGGAACTCCTGA"]
+
+[Assays."HRSVA2_pool1".multiplex."region7"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_7_LEFT", "CAGTGACTGACAACAAAGGAGCA"]
+reverse = ["RSVA2_7_RIGHT", "AGTGAGGTTGAGATTATCATTGCCA"]
+
+[Assays."HRSVA2_pool2".multiplex."region8"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_8_LEFT", "CCACATCAACATCTCACCATGC"]
+reverse = ["RSVA2_8_RIGHT", "TGGAGGTGAGCAGTGTAGTTCT"]
+
+[Assays."HRSVA2_pool1".multiplex."region9"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_9_LEFT", "TGCTGAGTCAACCCCACAAT"]
+reverse = ["RSVA2_9_RIGHT", "TGCTGGTGTGCTTTGCATGA"]
+
+[Assays."HRSVA2_pool2".multiplex."region10"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_10_LEFT", "AATCAACATGCAGTGCAGTTAGC"]
+reverse = ["RSVA2_10_RIGHT", "GGGGATGTGTGTAGTTTCCAACA"]
+
+[Assays."HRSVA2_pool1".multiplex."region11"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_11_LEFT", "CCAGAGAATTTAGTGTTAATGCAGGTG"]
+reverse = ["RSVA2_11_RIGHT", "TCATCTGATTTACGGATAAATGCTAGACT"]
+
+[Assays."HRSVA2_pool2".multiplex."region12"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_12_LEFT", "CTAGGAGCCATTGTGTCATGCT"]
+reverse = ["RSVA2_12_RIGHT", "TCTAGCACTCCAACTACACCGA"]
+
+[Assays."HRSVA2_pool1".multiplex."region13"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_13_LEFT", "TGGGGCAAATATGTCACGAAGG"]
+reverse = ["RSVA2_13_RIGHT", "TGATGATGTGGTAAGTATTAGGATTGAGT"]
+
+[Assays."HRSVA2_pool2".multiplex."region14"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_14_LEFT", "ACCATGCCAAAAATAATGATACTACCTG"]
+reverse = ["RSVA2_14_RIGHT", "AACCATGATGGAGGATGTTGCA"]
+
+[Assays."HRSVA2_pool1".multiplex."region15"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_15_LEFT", "GGAAGTTACATATTCAATGGTCCTTATCTC"]
+reverse = ["RSVA2_15_RIGHT", "GTAGAACCCCTCATTGTGGAATAGTT"]
+
+[Assays."HRSVA2_pool2".multiplex."region16"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_16_LEFT", "GCATATTAACACAATATCGATCTAGTGAGG"]
+reverse = ["RSVA2_16_RIGHT", "CGATAGAAACGTAGTCCTGATAGAACA"]
+
+[Assays."HRSVA2_pool1".multiplex."region17"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_17_LEFT", "TGCAACGAGACCAAATTTTACTTGTT"]
+reverse = ["RSVA2_17_RIGHT", "GGGTGCATGCCTATATGTGCA"]
+
+[Assays."HRSVA2_pool2".multiplex."region18"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_18_LEFT", "TGCAACCAGGAATGTTCAGACA"]
+reverse = ["RSVA2_18_RIGHT", "TCTTGTGTCAAACTACCTATAGATTCTAGAC"]
+
+[Assays."HRSVA2_pool1".multiplex."region19"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_19_LEFT", "GAAGGTCAAACTCATGCTCAAGC"]
+reverse = ["RSVA2_19_RIGHT", "TCATAAACAACTCTTAGCCCGTGAG"]
+
+[Assays."HRSVA2_pool2".multiplex."region20"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_20_LEFT", "CTCAAGCTTTAGGATCTGAGAGGC"]
+reverse = ["RSVA2_20_RIGHT", "TGCAGGGAATTCACATGGTCTAC"]
+
+[Assays."HRSVA2_pool1".multiplex."region21"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_21_LEFT", "GTGGTGAGAGAGGACCCACTAA"]
+reverse = ["RSVA2_21_RIGHT", "ATCACACTCCAGCTTTGCTCTG"]
+
+[Assays."HRSVA2_pool2".multiplex."region22"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_22_LEFT", "CACAGGTGATGTTGATATTCACAAGTT"]
+reverse = ["RSVA2_22_RIGHT", "CCGGATTGGTTAGTATATTTTCTAGGG"]
+
+[Assays."HRSVA2_pool1".multiplex."region23"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_23_LEFT", "GTTTGCCCTTGGGTTGTTAACAT"]
+reverse = ["RSVA2_23_RIGHT", "GTTGGTTGCATCTGTAGCAGGA"]
+
+[Assays."HRSVA2_pool2".multiplex."region24"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA2_24_LEFT", "TCATAGGTGAAGGAGCAGGGAA"]
+reverse = ["RSVA2_24_RIGHT", "AGCTGTTTAACAATTCACTTAGATGAGG"]
+
+
+
+
+
+
+
+
+[Assays."HRSVA3_pool1".multiplex."region1"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_1_LEFT", "AAATGCGTACAACAAACTTGCGT"]
+reverse = ["RSVA3_1_RIGHT", "TTATGGGTGTGTGCTTGGTAGG"]
+
+[Assays."HRSVA3_pool2".multiplex."region2"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_2_LEFT", "CTATTGCACAAAGTGGGAAGCAC"]
+reverse = ["RSVA3_2_RIGHT", "CAAACACTTCATAGAAGCTGTTGGC"]
+
+[Assays."HRSVA3_pool1".multiplex."region3"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_3_LEFT", "AGAAATGGGAGAGGTGGCTC"]
+reverse = ["RSVA3_3_RIGHT", "TGTTATAGGGCTTTCTTTGGTTACTTCT"]
+
+[Assays."HRSVA3_pool2".multiplex."region4"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_4_LEFT", "GAAGATGCAAACAACAGAGCCAC"]
+reverse = ["RSVA3_4_RIGHT", "GAACAGCAGCTGTGTATGTGGA"]
+
+[Assays."HRSVA3_pool1".multiplex."region5"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_5_LEFT", "GAAGGGAATGATAGTGACAATGATCTATC"]
+reverse = ["RSVA3_5_RIGHT", "GCTGTGTGCTTCCAATTTGTTG"]
+
+[Assays."HRSVA3_pool2".multiplex."region6"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_6_LEFT", "ACATGACATCATTGCTTTATGTGAATTTG"]
+reverse = ["RSVA3_6_RIGHT", "TTGCCCCAGCGTTGTTTTTG"]
+
+[Assays."HRSVA3_pool1".multiplex."region7"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_7_LEFT", "CTCAAGCAAATTCTGGCCTTACTTT"]
+reverse = ["RSVA3_7_RIGHT", "GGTGGTTTTCTTTCCAGGTTTTT"]
+
+[Assays."HRSVA3_pool2".multiplex."region8"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_8_LEFT", "TGCAACGAACCAGATCAAGAA"]
+reverse = ["RSVA3_8_RIGHT", "ACCAACCAGTTCTTAGAGCACT"]
+
+[Assays."HRSVA3_pool1".multiplex."region9"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_9_LEFT", "GGAGTTGCCAATCCTCAAAACAAA"]
+reverse = ["RSVA3_9_RIGHT", "GGGGATGTGTGTAGTTTCCAACA"]
+
+[Assays."HRSVA3_pool2".multiplex."region10"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_10_LEFT", "AGCTGCAGCATATCAAACATTGAAA"]
+reverse = ["RSVA3_10_RIGHT", "TGGTAGTTATCATGATATTTGTGGTGG"]
+
+[Assays."HRSVA3_pool1".multiplex."region11"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_11_LEFT", "TCCATTAGTGTTCCCCTCTGATGA"]
+reverse = ["RSVA3_11_RIGHT", "CAGATGGATAGTTTGTTTATTGTTCTTCCT"]
+
+[Assays."HRSVA3_pool2".multiplex."region12"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_12_LEFT", "GCAAACTCCTTACTGAACTCAACAG"]
+reverse = ["RSVA3_12_RIGHT", "TTGACATCACTGATTTCTATAGCTCTTCT"]
+
+[Assays."HRSVA3_pool1".multiplex."region13"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_13_LEFT", "CATGCCAAAAATAATGATACTACCTGACA"]
+reverse = ["RSVA3_13_RIGHT", "AAACCAATGTATTAACCATGATGGAGG"]
+
+[Assays."HRSVA3_pool2".multiplex."region14"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_14_LEFT", "GATGAAGACAACTCAGTCATTACTACCA"]
+reverse = ["RSVA3_14_RIGHT", "AAAAGCTCCTCTTAACATACTCAAACTAC"]
+
+[Assays."HRSVA3_pool1".multiplex."region15"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_15_LEFT", "CTTAGGCTTAAGATGTGGATTCAATAATGT"]
+reverse = ["RSVA3_15_RIGHT", "TGCAAACATTCTACCTACACTGAGT"]
+
+[Assays."HRSVA3_pool2".multiplex."region16"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_16_LEFT", "GTTTCCCTAGAAATTATATGCCGTCAC"]
+reverse = ["RSVA3_16_RIGHT", "GTTCCTTTTAATTTGTGGCCTATTCC"]
+
+[Assays."HRSVA3_pool1".multiplex."region17"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_17_LEFT", "CTCAAAGGGAAATTCTCAATTACTGC"]
+reverse = ["RSVA3_17_RIGHT", "TCATAAACAACTCTTAGCCCGTGAG"]
+
+[Assays."HRSVA3_pool2".multiplex."region18"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_18_LEFT", "TTCGTTACATTGATGAGAGATCCTC"]
+reverse = ["RSVA3_18_RIGHT", "TCTGTTAATATGCGATTAATAGGGCTAGT"]
+
+[Assays."HRSVA3_pool1".multiplex."region19"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_19_LEFT", "GGAGGAACTTAGCATAGGAACTCT"]
+reverse = ["RSVA3_19_RIGHT", "ATGTTAACAACCCAAGGGCAAAC"]
+
+[Assays."HRSVA3_pool2".multiplex."region20"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_20_LEFT", "AGTTATTGGAAGTCTATGTCTAAGGTGTT"]
+reverse = ["RSVA3_20_RIGHT", "TGTTGATATGTCCATTGTACAGCCT"]
+
+[Assays."HRSVA3_pool1".multiplex."region21"]
+description = "WGS tiling amplicon primer set targeting RSVA from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVA3_21_LEFT", "CCCTAGAAAATATACTAACCAATCCGG"]
+reverse = ["RSVA3_21_RIGHT", "AGGCATGATGAAATTTTTGGTTCTTGA"]
+
+
+
+
+
+
+
+
+
+
+
+
+[Assays."HRSVB1_pool1".multiplex."region1"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_1_LEFT", "GCGTACTACAAACTTGCACACTC"]
+reverse = ["RSVB1_1_RIGHT", "ACAGGGGTCTCATGTCTGTGAT"]
+
+[Assays."HRSVB1_pool2".multiplex."region2"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_2_LEFT", "ACACTGCTCTCAATTAAATGGTCTAATAG"]
+reverse = ["RSVB1_2_RIGHT", "GCTCCTTCTTAACTGTTGAGCATTG"]
+
+[Assays."HRSVB1_pool1".multiplex."region3"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_3_LEFT", "ACAAATATGACCTCAACCCGTAACT"]
+reverse = ["RSVB1_3_RIGHT", "CAGTATTATCATCCCACAGTCTGGAG"]
+
+[Assays."HRSVB1_pool2".multiplex."region4"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_4_LEFT", "GCTAATGGAGTAGATATAACAACATATCGTC"]
+reverse = ["RSVB1_4_RIGHT", "TGATGCTTTTGGATTGTTCAATATATGGT"]
+
+[Assays."HRSVB1_pool1".multiplex."region5"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_5_LEFT", "CCAAGCAGAAATGGAGCAAGTTG"]
+reverse = ["RSVB1_5_RIGHT", "GGGGTGAGATCTTCTTTGAAGCT"]
+
+[Assays."HRSVB1_pool2".multiplex."region6"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_6_LEFT", "CCGATAACATCTGGCACCAACA"]
+reverse = ["RSVB1_6_RIGHT", "TTGGTGGTTCTGCTGATGGATG"]
+
+[Assays."HRSVB1_pool1".multiplex."region7"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_7_LEFT", "TCACTTGATGATTTTTGATCAGTGATCAA"]
+reverse = ["RSVB1_7_RIGHT", "TTTCAAATTCACATAGAGCAATGATCTCA"]
+
+[Assays."HRSVB1_pool2".multiplex."region8"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_8_LEFT", "CCTTGTGAAATCAAAGCATGCAGT"]
+reverse = ["RSVB1_8_RIGHT", "GATTGGCGGTATAGATGGTTGTTG"]
+
+[Assays."HRSVB1_pool1".multiplex."region9"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_9_LEFT", "CATTGTCTGCCAGACCTAGAGTG"]
+reverse = ["RSVB1_9_RIGHT", "TGCCAAAACTGATAGTGCTATTTGTG"]
+
+[Assays."HRSVB1_pool2".multiplex."region10"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_10_LEFT", "TGCCAGGACTCTAGAAAAGACCT"]
+reverse = ["RSVB1_10_RIGHT", "TTTTTCGGTGTTTTGGCTAGTGT"]
+
+[Assays."HRSVB1_pool1".multiplex."region11"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_11_LEFT", "TCCATTTGCAAAACAATACCAAGCA"]
+reverse = ["RSVB1_11_RIGHT", "GTATACCAACCTGTTCTTAAAGCACT"]
+
+[Assays."HRSVB1_pool2".multiplex."region12"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_12_LEFT", "GCATTGTACCTTACCTCAAGTCAGA"]
+reverse = ["RSVB1_12_RIGHT", "CCTGCATTGACACTAAATTCTCTGG"]
+
+[Assays."HRSVB1_pool1".multiplex."region13"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_13_LEFT", "ACAGAGTTGTCGCATATCCAACA"]
+reverse = ["RSVB1_13_RIGHT", "TTGGATGCAGTACATTTAGTCTTACCA"]
+
+[Assays."HRSVB1_pool2".multiplex."region14"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_14_LEFT", "CAGCCTTTGTAACACTGACATATTCAA"]
+reverse = ["RSVB1_14_RIGHT", "ATCTGTTGTAAGTTGATTTGGGATTGA"]
+
+[Assays."HRSVB1_pool1".multiplex."region15"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_15_LEFT", "AGCAAAGACCAACTAAGTGGAATCA"]
+reverse = ["RSVB1_15_RIGHT", "TGCTCTCGATGTATGATATAACAGTATTGT"]
+
+[Assays."HRSVB1_pool2".multiplex."region16"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_16_LEFT", "TCATGCATTGCTAGTGAGGCA"]
+reverse = ["RSVB1_16_RIGHT", "TGTTGAGTGGCATCTAATAAGTTTTTAGG"]
+
+[Assays."HRSVB1_pool1".multiplex."region17"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_17_LEFT", "ATTGATCTCAAGTGAAAGCATGATTGC"]
+reverse = ["RSVB1_17_RIGHT", "CCTTTAGTCCTAGTTTATTCAAGATGGC"]
+
+[Assays."HRSVB1_pool2".multiplex."region18"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_18_LEFT", "TGTCCTCGTCTGAACAAATTGCT"]
+reverse = ["RSVB1_18_RIGHT", "GTGATAGCACAACATTATTGAATCCG"]
+
+[Assays."HRSVB1_pool1".multiplex."region19"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_19_LEFT", "CAATCAATTTTTGACATGGAAAGACATCA"]
+reverse = ["RSVB1_19_RIGHT", "ACCATCTTAGAGGTAGGACAATAGCA"]
+
+[Assays."HRSVB1_pool2".multiplex."region20"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_20_LEFT", "GCTGTAAGAATTAACTGCAATGAAACTAAG"]
+reverse = ["RSVB1_20_RIGHT", "ACCATATCTTGTCAAACTCTCAGGG"]
+
+[Assays."HRSVB1_pool1".multiplex."region21"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_21_LEFT", "TGCAACCAGGTATGTTTAGGCAA"]
+reverse = ["RSVB1_21_RIGHT", "CCTATGCCTGCATACTCTTTATATAGCA"]
+
+[Assays."HRSVB1_pool2".multiplex."region22"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_22_LEFT", "GCTCTGATAAATGGTGATAATCAGTCAA"]
+reverse = ["RSVB1_22_RIGHT", "GGAGCTTATCTTGTAGATCGTGACC"]
+
+[Assays."HRSVB1_pool1".multiplex."region23"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_23_LEFT", "AGTATCGATACGGCGTTATCATTGT"]
+reverse = ["RSVB1_23_RIGHT", "ACTCTCTTTTGTCTTTGTTACAATCTAGTG"]
+
+[Assays."HRSVB1_pool2".multiplex."region24"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_24_LEFT", "CCTCATGGATTAAGAGTTGTTTATGAAAGT"]
+reverse = ["RSVB1_24_RIGHT", "GTCTACTACTGACTGTTAACCGGTG"]
+
+[Assays."HRSVB1_pool1".multiplex."region25"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_25_LEFT", "ACCAAAAAGCAAAGAGACCAAATAGATT"]
+reverse = ["RSVB1_25_RIGHT", "TTGAATAATCAGAATCCAATGTCCAGC"]
+
+[Assays."HRSVB1_pool2".multiplex."region26"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_26_LEFT", "CACTTAAATCTGGATCTCACATCAACTC"]
+reverse = ["RSVB1_26_RIGHT", "TTGTTAGCAGATGAGTGTTGTCTGA"]
+
+[Assays."HRSVB1_pool1".multiplex."region27"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_27_LEFT", "CCCAACACACATGAAAGCTATATTATCTT"]
+reverse = ["RSVB1_27_RIGHT", "CAGCTCCTTCACCTATGAATGCT"]
+
+[Assays."HRSVB1_pool2".multiplex."region28"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_28_LEFT", "AGTTCCACAGGATGCAAGATCAG"]
+reverse = ["RSVB1_28_RIGHT", "GATAGATTCCTTGTCAATCTTTTTAGGCA"]
+
+[Assays."HRSVB1_pool1".multiplex."region29"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB1_29_LEFT", "TGTGATGCTGAATTACCTGTCACA"]
+reverse = ["RSVB1_29_RIGHT", "AGGAAGGTTGTATAGTACACTACCTGT"]
+
+
+
+
+
+
+
+[Assays."HRSVB2_pool1".multiplex."region1"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_1_LEFT", "GCGTACTACAAACTTGCACACTC"]
+reverse = ["RSVB2_1_RIGHT", "ACAGGGGTCTCATGTCTGTGAT"]
+
+[Assays."HRSVB2_pool2".multiplex."region2"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_2_LEFT", "TCTAAAAGACTAAGTGACTCAGTAATGACT"]
+reverse = ["RSVB2_2_RIGHT", "CCCCAATTTATGTTACTGGTTTCACC"]
+
+[Assays."HRSVB2_pool1".multiplex."region3"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_3_LEFT", "TCAACCCGTAACTTCCAACAAAAA"]
+reverse = ["RSVB2_3_RIGHT", "ACCTGATCTATCTCCTGCTGCT"]
+
+[Assays."HRSVB2_pool2".multiplex."region4"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_4_LEFT", "TGGAGTAGATATAACAACATATCGTCAAGA"]
+reverse = ["RSVB2_4_RIGHT", "GCCTAGGACCACACTTGAGAAG"]
+
+[Assays."HRSVB2_pool1".multiplex."region5"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_5_LEFT", "GGAGCAAGTTGTGGAAGTCTATGA"]
+reverse = ["RSVB2_5_RIGHT", "TGGTTTCTTTGTACAACTTAGAGAAAGG"]
+
+[Assays."HRSVB2_pool2".multiplex."region6"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_6_LEFT", "CGGGGCAAATAAGTCAACATGG"]
+reverse = ["RSVB2_6_RIGHT", "GAGGTTGGATTGAGAGACACTTCA"]
+
+[Assays."HRSVB2_pool1".multiplex."region7"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_7_LEFT", "CATTAATGACCAATGATAGGTTAGAGGC"]
+reverse = ["RSVB2_7_RIGHT", "TCACAAGGTGTAGTTACATCATATGCT"]
+
+[Assays."HRSVB2_pool2".multiplex."region8"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_8_LEFT", "CACGAAGGCTCCACATACACAG"]
+reverse = ["RSVB2_8_RIGHT", "ATGCTCTCTTTTTCTAGGTAGGCA"]
+
+[Assays."HRSVB2_pool1".multiplex."region9"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_9_LEFT", "ACTCATGAGATCATTGCTCTATGTGAA"]
+reverse = ["RSVB2_9_RIGHT", "GTATTAGTGTAAAATAGGGCCAAAATTTGC"]
+
+[Assays."HRSVB2_pool2".multiplex."region10"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_10_LEFT", "TCAACATTGAATGACAGGTTCACAT"]
+reverse = ["RSVB2_10_RIGHT", "AGGTCTTTTCTAGAGTCCTGGCA"]
+
+[Assays."HRSVB2_pool1".multiplex."region11"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_11_LEFT", "TTCTCACAGAGTCATGGCATCAC"]
+reverse = ["RSVB2_11_RIGHT", "AGTTGATTGTTGCCACATATACTACAG"]
+
+[Assays."HRSVB2_pool2".multiplex."region12"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_12_LEFT", "AGATGATTACCATTTTGAAGTGTTCAACT"]
+reverse = ["RSVB2_12_RIGHT", "TGCACTACATGTTGATTGGTAAAACTC"]
+
+[Assays."HRSVB2_pool1".multiplex."region13"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_13_LEFT", "GATCAAGTGCAATCTTCCTAACTCTTG"]
+reverse = ["RSVB2_13_RIGHT", "GACACTAAATTCTCTGGTGATTTCCA"]
+
+[Assays."HRSVB2_pool2".multiplex."region14"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_14_LEFT", "GGGGTCAGTGTTTTAACCAGCA"]
+reverse = ["RSVB2_14_RIGHT", "GCATGACACTATAGCTCCTAGAGAAG"]
+
+[Assays."HRSVB2_pool1".multiplex."region15"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_15_LEFT", "ATGAACAGTTTGACATTACCAAGTGA"]
+reverse = ["RSVB2_15_RIGHT", "TCTGTTGTAAGTTGATTTGGGATTGAT"]
+
+[Assays."HRSVB2_pool2".multiplex."region16"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_16_LEFT", "AGACCAACTAAGTGGAATCAATAATATTGC"]
+reverse = ["RSVB2_16_RIGHT", "TCTATTGCTCTCGATGTATGATATAACAGT"]
+
+[Assays."HRSVB2_pool1".multiplex."region17"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_17_LEFT", "GTGTTGCTATGAGTAAACTTCTTATTGAGA"]
+reverse = ["RSVB2_17_RIGHT", "GCATTACATTCTGAAAAAGAGATAACACC"]
+
+[Assays."HRSVB2_pool2".multiplex."region18"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_18_LEFT", "CCATAAGCAACCCAAAAGAGTCAA"]
+reverse = ["RSVB2_18_RIGHT", "AGCAATTTGTTCAGACGAGGACA"]
+
+[Assays."HRSVB2_pool1".multiplex."region19"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_19_LEFT", "AGACAAAGCCCACTAATAGAGCA"]
+reverse = ["RSVB2_19_RIGHT", "GCTGAGGCTGATGTCTTTCCAT"]
+
+[Assays."HRSVB2_pool2".multiplex."region20"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_20_LEFT", "TCCATCATGGTTAATACACTGGTTCA"]
+reverse = ["RSVB2_20_RIGHT", "TGGATGTCCAAAGATTCTGAAGAGAA"]
+
+[Assays."HRSVB2_pool1".multiplex."region21"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_21_LEFT", "GTCACACTTTATTAGACAAGACAGTGT"]
+reverse = ["RSVB2_21_RIGHT", "ACATGATTAGAGTTGTTGAGATAGCTTTG"]
+
+[Assays."HRSVB2_pool2".multiplex."region22"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_22_LEFT", "GAACATGAAAAGTTGAAGTTCTCTGAAAG"]
+reverse = ["RSVB2_22_RIGHT", "GATCTAATAATGATATGGCTTCAATGGTCC"]
+
+[Assays."HRSVB2_pool1".multiplex."region23"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_23_LEFT", "AATGAAGTTGATGAACAAAGTGGGTT"]
+reverse = ["RSVB2_23_RIGHT", "AACAGCATAGGCAAGTTCATATACAATG"]
+
+[Assays."HRSVB2_pool2".multiplex."region24"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_24_LEFT", "AGGTCCATGGATAAATACAATACTTGATGA"]
+reverse = ["RSVB2_24_RIGHT", "AATCCATGAGGGTAAGTTGGTTCT"]
+
+[Assays."HRSVB2_pool1".multiplex."region25"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_25_LEFT", "CAGAAGTCTTAAGTATAGCTCCAAACAAAA"]
+reverse = ["RSVB2_25_RIGHT", "CCAGTACTCAGTTCTTCCATGAATTC"]
+
+[Assays."HRSVB2_pool2".multiplex."region26"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_26_LEFT", "GCAAGTATGTAAGAGAAAGATCTTGGTC"]
+reverse = ["RSVB2_26_RIGHT", "AGGAGGTTTCATCAAATGTATCTCATTC"]
+
+[Assays."HRSVB2_pool1".multiplex."region27"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_27_LEFT", "CGACATTGTGTTTCAAAATTGCATAAGT"]
+reverse = ["RSVB2_27_RIGHT", "CTGTGACAACCTTTTATTCTATGCAAAC"]
+
+[Assays."HRSVB2_pool2".multiplex."region28"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_28_LEFT", "GCTACTGGAAATCTATGTCTAAAGTTTTCC"]
+reverse = ["RSVB2_28_RIGHT", "GATGTCTGATGTGAAGTGGTGGT"]
+
+[Assays."HRSVB2_pool1".multiplex."region29"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_29_LEFT", "ACCACAAGATTCAATTATAGCAGACAAG"]
+reverse = ["RSVB2_29_RIGHT", "TTTGAAATCAATATCATCTTGAGCATGGT"]
+
+[Assays."HRSVB2_pool2".multiplex."region30"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_30_LEFT", "TGTGATGCTGAATTACCTGTCACA"]
+reverse = ["RSVB2_30_RIGHT", "AGGAAGGTTGTATAGTACACTACCTGT"]
+
+[Assays."HRSVB2_pool1".multiplex."region31"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT by primal scheme tool, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["RSVB2_31_LEFT", "AGTCCTTACAATAGGCCCTGCA"]
+reverse = ["RSVB2_31_RIGHT", "GTGTCAAAACTAATGTCTCGTTGTGT"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[Assays."HRSVB_16amp".multiplex."region1"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF1for", "ACGCGAAAAAATGCGTACTAC"]
+reverse = ["BF1rev", "ACATCATAATTGGGAGTGTCAA"]
+
+[Assays."HRSVB_16amp".multiplex."region2"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, region 2"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF2for", "AACCCGTAACTTCCAACAAA"]
+reverse = ["BF2rev", "TTCAGGTGCAAACTTCTCCAT"]
+
+[Assays."HRSVB_16amp".multiplex."region3"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, region 3"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF3for", "GAAGTTGGGAGGAGAAGCT"]
+reverse = ["BF3rev", "CCTTTGGGCGTAGAGATCTG"]
+
+[Assays."HRSVB_16amp".multiplex."region4"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF4for", "GACTTGTTGGAAGACAACGA"]
+reverse = ["BF4rev", "GGGCCAAAATTTGCTTGTGA"]
+
+[Assays."HRSVB_16amp".multiplex."region5"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF5for", "TCCCACTCAAAATCCAAAATCAC"]
+reverse = ["BF5rev", "GGTTGATGGTGGTTTCTTTT"]
+
+[Assays."HRSVB_16amp".multiplex."region6"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF6for", "CATCTCTGCCAATCACAAAG"]
+reverse = ["BF6rev", "GCATTGACACTAAATTCTCTGGT"]
+
+[Assays."HRSVB_16amp".multiplex."region7"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF7for", "GTAGGATCTGCAATAGCAAG"]
+reverse = ["BF7rev", "GTTGATTTGGGATTGGTGGTCA"]
+
+[Assays."HRSVB_16amp".multiplex."region8"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF8for", "CCCTCTAGTGTTTCCTTCTG"]
+reverse = ["BF8rev", "TCCATTAATAATGGGATCCATTT"]
+
+[Assays."HRSVB_16amp".multiplex."region9"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF9for", "TACCAGCAGACGTGCTGAAG"]
+reverse = ["BF9rev", "TTTATTATGTAAAAGCCTTCATTATG"]
+
+[Assays."HRSVB_16amp".multiplex."region10"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF10for", "CAATGCAACATCCTCCATCA"]
+reverse = ["BF10rev", "TTCTTTACCAGTTAGTGATAC"]
+
+[Assays."HRSVB_16amp".multiplex."region11"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF11for", "AGTGGATCTTGAAATGATAATAAAT"]
+reverse = ["BF11rev", "AGGATCACCACCACCAAACA"]
+
+[Assays."HRSVB_16amp".multiplex."region12"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF12for", "GAGTAGGTCCATGGATAAATAC"]
+reverse = ["BF12rev", "TGACTGTTAACCGGTGTAAATA"]
+
+[Assays."HRSVB_16amp".multiplex."region13"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF13for", "TGGACATTAAATATACAACTAGCA"]
+reverse = ["BF13rev", "TTAACAACCCAAGGGCATAC"]
+
+[Assays."HRSVB_16amp".multiplex."region14"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF14for", "AAAAAGATTGGGGAGAGGGGTA"]
+reverse = ["BF14rev", "TGCACTTTCTTACATGCTTACTC"]
+
+[Assays."HRSVB_16amp".multiplex."region15"]
+description = "WGS tiling amplicon primer set targeting RSVB from TT, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF15for", "GGTGAAGGAGCTGGTAACTT"]
+reverse = ["BF15rev", "ACGAGAAAAAAAGTGTCAAAAACT"]
+
+[Assays."HRSVB_16amp".multiplex."region16"]
+description = "WGS tiling amplicon primer set targeting RSVB from, pool 1, region 1"
+sop_id = 'none'
+target_id = ""
+reverse_strand_same_as_forward = false
+forward = ["BF1altfor", "ACACTCGAAAAAAATGGGGC"]
+reverse = ["BF1rev", "ACATCATAATTGGGAGTGTCAA"]
+
+
+

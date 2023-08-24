@@ -1,0 +1,28 @@
+process {
+    container_path = "$NGSSERVICE_CONTAINER_PATH"
+    queue = "$SLURM_PARTITION"
+    withName:qaat_test {
+        container = "$container_path/qaat.sinimg"
+    }
+    withName:viral_contamination_check {
+        container = "$container_path/viral_contamination_check.sinimg"
+    }
+    withName:viral_quasi_species {
+        container = "$container_path/viral_quasi_species.sinimg"
+    }
+    withName:generate_bamstats {
+        container = "$container_path/generate_bamstats.sinimg"
+    }
+    withName:combine_xml {
+        container = "$container_path/combine_xml.sinimg"
+    }
+}
+singularity {
+    enabled = true
+}
+executor {
+    name = 'slurm'
+    exitReadTimeout = '720 sec'
+    queueSize = 10
+}
+process.module = 'singularity/singularity-3.4.1'

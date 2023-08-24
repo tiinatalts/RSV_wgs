@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+#app_title2 {
+  position: relative;
+  color: #283747;
+  text-align: center;
+  font-size: 3vw;
+  -webkit-animation: fadeIn 8s;
+}
+
+#logo {
+  position: relative;
+  text-align: center;
+  color: black;
+
+
+}
+.logo {
+  max-width: 50%;
+  max-height: 50%;
+  -webkit-animation: fadeIn 4s;
+}
+
+
+
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fafafa;
+  padding: 0px;
+  text-align: left;
+  border-top: 1px solid #E7E7E7;
+  box-shadow: 0px 0px 5px #333;
+  z-index: 200;
+}
+
+#all {
+  
+   -webkit-animation: fadeIn 8s;
+}
+
+
+
+/* Toggle this class - hide and show the popup */
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+
+
+
+#text-bg {
+     border-top: 4vw solid white;
+     border-bottom: 4vw solid white;
+     text-align: center;
+     color: black;
+     color: #283747;
+     font-size: 20px;
+     font-weight: bold;
+     font-family: 'Roboto', cursive;
+     display: block;
+     -webkit-animation: fadeIn 15s;
+
+}
+
+
+#blank {
+     border-top: 4vw solid white;
+     border-bottom: 4vw solid white;
+ 
+}
+
+#results {
+   -webkit-animation: fadeIn 20s;
+}
